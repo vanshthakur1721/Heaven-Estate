@@ -6,18 +6,6 @@ nav {
   justify-content: space-between;
   align-items: center;
 
-  a {
-    transition: all 0.4s ease;
-
-    @include sm {
-      display: none;
-    }
-
-    &:hover {
-      scale: 1.05;
-    }
-  }
-
   .left {
     flex: 3;
     display: flex;
@@ -46,6 +34,7 @@ nav {
       }
     }
   }
+
   .right {
     flex: 2;
     display: flex;
@@ -53,62 +42,89 @@ nav {
     justify-content: flex-end;
     background-color: #fcf5f3;
     height: 100%;
+    position: relative;
+    z-index: 5;
 
     @include md {
       background-color: transparent;
     }
 
-    a {
+    .nav-link {
       padding: 12px 24px;
-      margin: 20px;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      @include sm {
+        display: none;
+      }
+
+      &.register {
+        background-color: #fece51;
+      }
     }
 
-    .user{
+    .user {
       display: flex;
       align-items: center;
+      gap: 10px; // Add space between items
       font-weight: bold;
-
-      img{
+      margin-right: 20px;
+    
+      img {
         width: 40px;
         height: 40px;
         border-radius: 50%;
         object-fit: cover;
-        margin-right: 20px;
       }
-
-      span{
-        @include sm{
-          display: none;
+    
+      span {
+        white-space: nowrap; // Prevent breaking text
+        font-size: 16px;
+    
+        @include sm {
+          display: none; // Hide username on small screens if needed
         }
       }
-
-      .profile{
-        padding: 12px 24px;
-        background-color: #fece51;
-        cursor: pointer;
-        border: none;
+    
+      .profile-link {
+        text-decoration: none;
+        color: inherit;
         position: relative;
-        
-        .notification{
-          position: absolute;
-          top: -8px;
-          right: -8px;
-          background-color: red;
-          color: white;
-          border-radius: 50%;
-          width: 26px;
-          height: 26px;
+    
+        .profile {
+          padding: 10px 16px;
+          background-color: #fece51;
+          cursor: pointer;
+          border: none;
+          border-radius: 8px;
           display: flex;
           align-items: center;
-          justify-content: center;
+          gap: 8px;
+    
+          .notification {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
-
       }
     }
-
-    .register {
-      background-color: #fece51;
-    }
+    
 
     .menuIcon {
       display: none;
@@ -126,28 +142,30 @@ nav {
     }
 
     .menu {
+      display: none;
       position: absolute;
       top: 0;
-      right: -50%;
+      right: 0;
       background-color: black;
       color: white;
       height: 100vh;
       width: 50%;
       transition: all 1s ease;
-      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       font-size: 24px;
+      z-index: 999;
 
       &.active {
-        right: 0;
+        display: flex;
       }
 
-      @include sm {
-        a {
-          display: initial;
-        }
+      a {
+        display: block;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
       }
     }
   }

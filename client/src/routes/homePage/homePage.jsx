@@ -13,10 +13,7 @@ function HomePage() {
         <div className="wrapper">
           <h1 className="title">Find Real Estate & Get Your Dream Place</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-            explicabo suscipit cum eius, iure est nulla animi consequatur
-            facilis id pariatur fugit quos laudantium temporibus dolor ea
-            repellat provident impedit!
+          We offer trusted real estate property listings in Jabalpur. Discover premium apartments, houses, and plots with verified details. Our platform connects buyers, sellers, and renters, making the process simple, secure, and efficient. Explore top locations, compare prices, and find your perfect property today!
           </p>
           <SearchBar />
           <div className="boxes">
