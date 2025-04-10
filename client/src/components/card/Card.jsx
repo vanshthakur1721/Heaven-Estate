@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./card.scss";
-
+import { formatToINR } from "../../lib/formatToINR";
 function Card({ item }) {
   return (
     <div className="card">
@@ -15,7 +15,7 @@ function Card({ item }) {
           <img src="/pin.png" alt="" />
           <span>{item.address}</span>
         </p>
-        <p className="price">$ {item.price}</p>
+        <p className="price"> {formatToINR(item.price)}</p>
         <div className="bottom">
           <div className="features">
             <div className="feature">

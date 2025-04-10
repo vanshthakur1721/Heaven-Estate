@@ -6,6 +6,7 @@ import DOMPurify from "dompurify";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import apiRequest from "../../lib/apiRequest";
+import { formatToINR } from "../../lib/formatToINR";
 
 function SinglePage() {
   const post = useLoaderData();
@@ -40,7 +41,7 @@ function SinglePage() {
                   <img src="/pin.png" alt="" />
                   <span>{post.address}</span>
                 </div>
-                <div className="price">$ {post.price}</div>
+                <div className="price"> {formatToINR(post.price)}</div>
               </div>
               <div className="user">
                 <img src={post.user.avatar} alt="" />
